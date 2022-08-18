@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = 'https://api.themoviedb.org'
+const BASE_URL = 'https://api.themoviedb.org/3/movie/'
 
 
 const get = async (endpoint) => {
