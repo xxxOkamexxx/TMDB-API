@@ -2,19 +2,26 @@ import { Link, NavLink } from 'react-router-dom'
 
 // styles
 import Container from 'react-bootstrap/Container'
-import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
+import Navbar from 'react-bootstrap/Navbar'
+import NavDropdown from 'react-bootstrap/NavDropdown'
 
 const Navigation = () => {
 	return (
 		<Navbar bg="dark" variant="dark" expand="md">
 			<Container>
-				<Navbar.Brand as={Link} to="/">React Template</Navbar.Brand>
+				<Navbar.Brand as={Link} to="/">
+					The Movie DB
+				</Navbar.Brand>
 
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="ms-auto">
-						<Nav.Link as={NavLink} end to="/">Home</Nav.Link>
+						<NavDropdown title="Movies" id="basic-nav-dropdown">
+								<NavDropdown.Item as={NavLink} to="/movie/popular">Popular</NavDropdown.Item>
+								<NavDropdown.Item as={NavLink} to="/movie/latest">Latest</NavDropdown.Item>
+								<NavDropdown.Item as={NavLink} to="/movie/top_rated">Top rated</NavDropdown.Item>
+						</NavDropdown>
 					</Nav>
 				</Navbar.Collapse>
 			</Container>
