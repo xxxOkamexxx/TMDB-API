@@ -1,32 +1,21 @@
-import axios from "axios";
+import axios from "axios"
 
-axios.defaults.baseURL = 'https://api.themoviedb.org/3'
+const BASE_URL = 'https://api.themoviedb.org/3'
+const API_KEY = import.meta.env.VITE_API_KEY
+const apiKey = '4e7030cd00fd950f89ca25a67f10944f'
 
-const requestOptions = {
-	headers: {
-		'X-RapidAPI-Key': import.meta.env.VITE_TMDB_API_KEY,
-		//'X-RapidAPI-Host': 'api.themoviedb.org/3',
-	}
-}
-
-// Get an endpoint
-
-const get = async (endpoint) => {
-    const res = await axios.get(endpoint)
-    return res.data
-}
+axios.defaults.baseURL = "http://localhost:3000"
 
 
 // Get Movies by type (popular/latest/top_rated)
 
-const getMovies = async ({ queryKey }) => {
-    const[_key, type] = queryKey
-
-    const response = await axios.get(`/movie/${type}?api_key=${requestOptions}`)
-    
-    return response.data
+// Popular Movies
+const getPopularMovies = async () => {   
+    const response = await axios.get(`${BASE_URL}/movie/popular?api_key=${apiKey}`)
+    console.log('response', response.data.results)
+    return response.data.results
 }
 
 export default {
-    getMovies,
+    getPopularMovies,
 }

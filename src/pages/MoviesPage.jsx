@@ -1,13 +1,20 @@
 import { useQuery } from 'react-query'
-import { useParams } from 'react-router-dom'
-import  getMovies  from '../services/TmdbAPI'
+import  TmdbAPI  from '../services/TmdbAPI'
 
 const MoviesPage = () => {
-    const { type } = useParams()
-    const { isLoading, isError, error, data } = useQuery(['movie', type], getMovies)
+    
+    const { isLoading, isError, error, data } = useQuery('movie', TmdbAPI.getPopularMovies)
+    console.log('data', data)
   return (
     <div>
       📽Movies are here🎞
+        {data && data.map( movie =>(
+          <li key={movie.id}>
+            <h1>{movie.original_title}</h1>
+          </li>
+        ))}
+
+
     </div>
   )
 }
