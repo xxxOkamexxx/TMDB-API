@@ -19,7 +19,7 @@ const Navigation = () => {
 					<Nav className="ms-auto">
 						<NavDropdown title="Movies" id="basic-nav-dropdown">
 								<NavDropdown.Item as={NavLink} to="/movie/popular">Popular</NavDropdown.Item>
-								<NavDropdown.Item as={NavLink} to="/movie/latest">Latest</NavDropdown.Item>
+								<NavDropdown.Item as={NavLink} to="/movie/now_playing">Now Playing</NavDropdown.Item>
 								<NavDropdown.Item as={NavLink} to="/movie/top_rated">Top rated</NavDropdown.Item>
 						</NavDropdown>
 					</Nav>
