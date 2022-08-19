@@ -1,21 +1,44 @@
 import { useQuery } from 'react-query'
 import  TmdbAPI  from '../services/TmdbAPI'
 
+// components
+import MovieCard from '../components/MovieCard'
+
+// styles
+import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+
 const TopRatedMoviesPage = () => {
     
     const { isLoading, isError, error, data } = useQuery('movie', TmdbAPI.getTopRatedMovies)
     console.log('data', data)
   return (
-    <div>
-      📽Movies are here🎞
-        {data && data.map( movie =>(
-          <li key={movie.id}>
-            <h1>{movie.original_title}</h1>
-          </li>
-        ))}
+    <Container>
+        {isLoading && (<p className="my-3">Loading Movies...</p>)}
 
+        {isError && (
+          <Alert variant="danger">
+            <h3>ERROR!</h3>
+            <p>{error.message}</p>
+          </Alert>)
+        }
+    
+        {data && (
+          <>
+            <Row>
+              {data.map( movie =>(
+                <Col lg={3} md={4} sm={6} key={movie.id}>
+                  <MovieCard movie={movie} />
+                </Col>
+              ))}
+            </Row>
+          </>
+           
+        )
+       }
 
-    </div>
+    </Container>
   )
 }
 
