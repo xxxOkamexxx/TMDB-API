@@ -3,6 +3,7 @@ import useMovie from '../hooks/useMovie'
 
 // styles 
 import Container from 'react-bootstrap/esm/Container'
+import Image from 'react-bootstrap/Image'
 
 const MoviesPage = () => {
     const { id } = useParams()
@@ -24,9 +25,11 @@ const MoviesPage = () => {
       {data &&
        <>
         <h1>{data.title}</h1>
-        <div>
-
-        </div>
+        <p>{data.genres.map(genre => (<p>{genre.name}</p>))}</p> 
+        <Image className='img-thumbnail' src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} alt="poster" />
+        <p>{`Released: ${data.release_date}`}</p>
+        <p>{`Runtime: ${data.runtime}`}</p>
+        <p>{`Overview: ${data.overview}`}</p>
         
        </>
       }
