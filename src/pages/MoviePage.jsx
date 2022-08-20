@@ -3,7 +3,7 @@ import  TmdbAPI  from '../services/TmdbAPI'
 
 const MoviesPage = () => {
     
-    const { isLoading, isError, error, data } = useQuery('movie', TmdbAPI.getPopularMovies)
+    const { isLoading, isError, error, data } = useQuery('movie', TmdbAPI.getMovie)
     console.log('data', data)
   return (
     <div>
