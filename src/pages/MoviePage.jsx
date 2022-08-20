@@ -25,11 +25,13 @@ const MoviesPage = () => {
       {data &&
        <>
         <h1>{data.title}</h1>
-        <p>{data.genres.map(genre => (<p>{genre.name}</p>))}</p> 
+        {data.genres.map(genre => (<p key={genre.id}>{genre.name}</p>))}
         <Image className='img-thumbnail' src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} alt="poster" />
-        <p>{`Released: ${data.release_date}`}</p>
-        <p>{`Runtime: ${data.runtime}`}</p>
-        <p>{`Overview: ${data.overview}`}</p>
+        <div>
+          <p>{`Released: ${data.release_date}`}</p>
+          <p>{`Runtime: ${data.runtime}`}</p>
+          <p>{`Overview: ${data.overview}`}</p>
+        </div>
         
        </>
       }
