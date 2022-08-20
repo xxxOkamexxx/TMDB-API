@@ -14,6 +14,7 @@ axios.defaults.baseURL = "http://localhost:3000"
 const getPopularMovies = async () => {   
     const response = await axios.get(`${BASE_URL}/movie/popular${apiKey}`)
     console.log('response', response.data.results)
+    console.log('API KEY', API_KEY)
     return response.data.results
 }
 
