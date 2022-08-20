@@ -7,10 +7,10 @@ import Image from 'react-bootstrap/Image'
 
 const MoviesPage = () => {
     const { id } = useParams()
-    const { isLoading, isError, error, data} = useMovie(id)
+    const { isLoading, isError, error, data:movie} = useMovie(id)
 
     console.log('id', id)
-    console.log('data', data)
+    console.log('data', movie)
   return (
     <Container>
       {isLoading && (<p className="my-3">Loading Movies...</p>)}
@@ -22,15 +22,18 @@ const MoviesPage = () => {
         </Alert>)
       }
 
-      {data &&
+      {movie &&
        <>
-        <h1>{data.title}</h1>
-        {data.genres.map(genre => (<p key={genre.id}>{genre.name}</p>))}
-        <Image className='img-thumbnail' src={`https://image.tmdb.org/t/p/w500${data.poster_path}`} alt="poster" />
+        <h1>{movie.title}</h1>
+        {movie.genres.map(genre => (<p key={genre.id}>{genre.name}</p>))}
+        <Image className='img-thumbnail' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`image av ${movie.title}` }/>
         <div>
-          <p>{`Released: ${data.release_date}`}</p>
-          <p>{`Runtime: ${data.runtime}`}</p>
-          <p>{`Overview: ${data.overview}`}</p>
+          {movie.credits.cast.map(cast => (
+            <p key={cast.id}>{cast.name} as {cast.character}</p>
+          ))}
+          <p>{`Released: ${movie.release_date}`}</p>
+          <p>{`Runtime: ${movie.runtime}`}</p>
+          <p>{`Overview: ${movie.overview}`}</p>
         </div>
         
        </>
