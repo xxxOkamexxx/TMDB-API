@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage'
 import NotFound from './pages/NotFound'
 import PopularMoviesPage from './pages/PopularMoviesPage'
 import TopRatedMoviesPage from './pages/TopRatedMoviesPage'
+import MoviePage from './pages/MoviePage'
 
 // styles
 import './assets/scss/App.scss'
@@ -22,6 +23,7 @@ function App() {
 				<Route path="*" element={<NotFound />} />
 				<Route path="/movie/popular" element={<PopularMoviesPage />} />
 				<Route path="/movie/top_rated" element={<TopRatedMoviesPage />} />
+				<Route path="/movie/:id" element={<MoviePage />} />
 			</Routes>
 		</div>
 	)
