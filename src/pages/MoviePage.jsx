@@ -4,6 +4,7 @@ import useMovie from '../hooks/useMovie'
 // styles 
 import Container from 'react-bootstrap/esm/Container'
 import Image from 'react-bootstrap/Image'
+import CastCard from '../components/CastCard'
 
 const MoviesPage = () => {
     const { id } = useParams()
@@ -27,10 +28,16 @@ const MoviesPage = () => {
         <h1>{movie.title}</h1>
         {movie.genres.map(genre => (<p key={genre.id}>{genre.name}</p>))}
         <Image className='img-thumbnail' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`image av ${movie.title}` }/>
-        <div>
+
+        <div className='castCardsGroup'>
+          <p>Cast:</p>
           {movie.credits.cast.map(cast => (
-            <p key={cast.id}>{cast.name} as {cast.character}</p>
+            <div>
+              <CastCard cast={cast} />
+            </div>
           ))}
+        </div>
+        <div>
           <p>{`Released: ${movie.release_date}`}</p>
           <p>{`Runtime: ${movie.runtime}`}</p>
           <p>{`Overview: ${movie.overview}`}</p>
