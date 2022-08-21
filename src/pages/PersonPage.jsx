@@ -8,6 +8,7 @@ import WarningAlert from '../components/alerts/WarningAlert'
 import Container from 'react-bootstrap/esm/Container'
 import Image from 'react-bootstrap/Image'
 
+
 const PersonPage = () => {
     const { id } = useParams()
     const { isLoading, isError, error, data:person} = usePerson(id)
