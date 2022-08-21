@@ -1,13 +1,13 @@
 @import 'bootstrap/scss/bootstrap';
 
-.castCardsGroup {
+.overflow {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     overflow-x: scroll;
 }
 
-.castCard {
+.cardSize {
     width: 180px;
     height: 350px;
 }
