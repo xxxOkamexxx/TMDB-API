@@ -31,7 +31,7 @@ const MoviesPage = () => {
 
         <div>
           <p>{`Released: ${movie.release_date}`}</p>
-          <p>{`Runtime: ${movie.runtime}`}</p>
+          <p>{`Runtime: ${movie.runtime} min`}</p>
           <p>{`Overview: ${movie.overview}`}</p>
         </div>
         
@@ -40,6 +40,7 @@ const MoviesPage = () => {
     
             {movie.credits.cast.map(cast => (
               <div key={cast.id}>
+                <br/>
                 <CastCard cast={cast} />
               </div>
             ))}

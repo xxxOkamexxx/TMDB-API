@@ -47,7 +47,7 @@ const getTopRatedMovies = async () => {
  /*=====================
   * Get a actor info
   ======================*/
-  const getPeople = async (id) => {
+  const getPerson = async (id) => {
     const response = await axios.get(`${BASE_URL}/person/${id}${apiKey}&append_to_response=movie_credits&include_adult=false`)
     console.log('API_KEY: ', API_KEY)
     console.log('response', response.data)
@@ -58,4 +58,5 @@ export default {
     getPopularMovies,
     getTopRatedMovies,
     getMovie,
+    getPerson,
 }
