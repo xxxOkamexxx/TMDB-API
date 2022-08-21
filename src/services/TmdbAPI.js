@@ -24,7 +24,7 @@ const get = async (endpoint) => {
  */
 const getPopularMovies = async ({ queryKey }) => { 
     const [_key, page] = queryKey
-    return get(`/movie/popular${apiKey}&include_adult=false&page=${page}`)
+    return get(`/movie/popular?api_key=${API_KEY}&include_adult=false&page=${page}`)
 }
 
 /**
@@ -32,7 +32,7 @@ const getPopularMovies = async ({ queryKey }) => {
  */
 const getTopRatedMovies = async ({ queryKey }) => {   
     const [_key, page] = queryKey
-    return get(`/movie/top_rated${apiKey}&include_adult=false&page=${page}`)
+    return get(`/movie/top_rated?api_key=${API_KEY}&include_adult=false&page=${page}`)
 }
 
 /**
@@ -40,7 +40,7 @@ const getTopRatedMovies = async ({ queryKey }) => {
  */
 const getNowPlayingMovies = async ({ queryKey }) => { 
     const [_key, page] = queryKey  
-    return get(`/movie/now_playing${apiKey}&include_adult=false&page=${page}`)
+    return get(`/movie/now_playing?api_key=${API_KEY}&include_adult=false&page=${page}`)
 }
 
  /*=====================
@@ -48,20 +48,20 @@ const getNowPlayingMovies = async ({ queryKey }) => {
   *(with actor)
   ======================*/
   const getMovie = async (id) => {
-    const response = await axios.get(`${BASE_URL}/movie/${id}${apiKey}&append_to_response=credits&include_adult=false`)
     // console.log('API_KEY: ', API_KEY)
     // console.log('response', response.data)
-    return response.data
+    return get(`/movie/${id}?api_key=${API_KEY}&append_to_response=credits&include_adult=false`)
+    
 }
 
  /*=====================
   * Get a actor info
   ======================*/
   const getPerson = async (id) => {
-    const response = await axios.get(`${BASE_URL}/person/${id}${apiKey}&append_to_response=movie_credits&include_adult=false`)
     // console.log('API_KEY: ', API_KEY)
     // console.log('response', response.data)
-    return response.data
+    return get(`/person/${id}?api_key=${API_KEY}&append_to_response=movie_credits&include_adult=false`)
+    
 }
 
 export default {

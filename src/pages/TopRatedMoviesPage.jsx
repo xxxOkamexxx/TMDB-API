@@ -25,6 +25,7 @@ const TopRatedMoviesPage = () => {
     
         {data?.results && (
           <>
+            <h1>Top Rated</h1>
             <Row>
               {data.results.map( movie =>(
                 <Col lg={3} md={4} sm={6} key={movie.id}>
