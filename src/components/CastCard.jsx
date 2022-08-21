@@ -14,6 +14,11 @@ const CastCard = ({ cast }) => {
                   
             <Card.Title>{cast.name}</Card.Title>
             <Card.Text>as {cast.character}</Card.Text>
+            <Card.Text>
+                <Link to={`/person/${cast.id}`}>
+                    Read more...
+                </Link>
+            </Card.Text>
         </Card>
     )
 }
