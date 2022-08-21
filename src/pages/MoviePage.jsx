@@ -29,20 +29,22 @@ const MoviesPage = () => {
         {movie.genres.map(genre => (<p key={genre.id}>{genre.name}</p>))}
         <Image className='img-thumbnail' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`image av ${movie.title}` }/>
 
-        <div className='overflow'>
-          <p>Cast:</p><br/>
-          {movie.credits.cast.map(cast => (
-            <div key={cast.id}>
-              <CastCard cast={cast} />
-            </div>
-          ))}
-        </div>
         <div>
           <p>{`Released: ${movie.release_date}`}</p>
           <p>{`Runtime: ${movie.runtime}`}</p>
           <p>{`Overview: ${movie.overview}`}</p>
         </div>
         
+        <div className='overflow'>
+          <div>Cast:</div>
+    
+            {movie.credits.cast.map(cast => (
+              <div key={cast.id}>
+                <CastCard cast={cast} />
+              </div>
+            ))}
+      
+        </div>
        </>
       }
     </Container>
