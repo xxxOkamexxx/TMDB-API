@@ -33,6 +33,13 @@ const getTopRatedMovies = async () => {
     return get(`/movie/top_rated${apiKey}&include_adult=false`)
 }
 
+/**
+ * Top Rated Movies
+ */
+const getNowPlayingMovies = async () => {   
+    return get(`/movie/now_playing${apiKey}&include_adult=false`)
+}
+
  /*=====================
   * Get a movie info
   *(with actor)
@@ -57,6 +64,7 @@ const getTopRatedMovies = async () => {
 export default {
     getPopularMovies,
     getTopRatedMovies,
+    getNowPlayingMovies,
     getMovie,
     getPerson,
 }
