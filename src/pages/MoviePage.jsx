@@ -25,7 +25,7 @@ const MoviesPage = () => {
        <>
         <h1>{movie.title}</h1>
         {movie.genres.map(genre => (<p key={genre.id}>{genre.name}</p>))}
-        <Image className='img-thumbnail' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`image av ${movie.title}` }/>
+        <Image className='img-fluid' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`image av ${movie.title}` }/>
 
         <div>
           <p>{`Released: ${movie.release_date}`}</p>
