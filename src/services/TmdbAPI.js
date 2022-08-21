@@ -4,10 +4,6 @@ const BASE_URL = "https://api.themoviedb.org/3"
 const API_KEY = import.meta.env.VITE_API_KEY
 
 
-const apiKey = '?api_key=' + API_KEY
-
-
-
  /*================================
   * Get Movies by type 
   *(popular/now_playing/top_rated)

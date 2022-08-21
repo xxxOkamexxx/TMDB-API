@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import { ReactQueryDevtools } from 'react-query/devtools'
 
 // components
 import Navigation from './components/Navigation'
@@ -30,6 +31,8 @@ function App() {
 				<Route path="/person/:id" element={<PersonPage />} />
 				
 			</Routes>
+
+			<ReactQueryDevtools position='bottom-right' />
 		</div>
 	)
 }

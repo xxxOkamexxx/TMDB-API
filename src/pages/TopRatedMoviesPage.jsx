@@ -1,20 +1,23 @@
 import { useQuery } from 'react-query'
-import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import  TmdbAPI  from '../services/TmdbAPI'
 
 // components
 import MovieCard from '../components/MovieCard'
 import WarningAlert from '../components/alerts/WarningAlert'
+import Pagination from '../components/Pagination'
 
 // styles
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import Container from 'react-bootstrap/Container'
-import Button from 'react-bootstrap/Button'
+
 
 const TopRatedMoviesPage = () => {
-    const [page, setPage] = useState(1)    
-    const { isLoading, isError, error, data, isPreviousData } = useQuery(['movie', page], TmdbAPI.getTopRatedMovies, {keepPreviousData: true,})
+    const [searchParams, setSearchParams] = useSearchParams({ page: 1 })  
+    const page = searchParams.get('page') ? Number(searchParams.get('page')) : null
+    
+    const { isLoading, isError, error, data, isSuccess } = useQuery(['movie', page], TmdbAPI.getTopRatedMovies, {keepPreviousData: true,})
     console.log('data', data)
 
   return (
@@ -23,7 +26,7 @@ const TopRatedMoviesPage = () => {
 
         {isError && <WarningAlert message={error.message} />}
     
-        {data?.results && (
+        {isSuccess && data.results && (
           <>
             <h1>Top Rated</h1>
             <Row>
@@ -34,21 +37,14 @@ const TopRatedMoviesPage = () => {
               ))}
             </Row>
 
-            <div className="pagination d-flex justify-content-between align-items-center mt-4">
-              <Button
-                disabled={isPreviousData || page <= 1}
-                onClick={() => setPage(currentPage => currentPage - 1)}
-                variant="primary"
-              >Previous Page</Button>
-
-              <span>Page: {page}/{data.total_pages}</span>
-
-              <Button
-                disabled={isPreviousData || page === data.total_pages}
-                onClick={() => setPage(currentPage => currentPage + 1)}
-                variant="primary"
-              >Next Page</Button>
-					  </div>
+            <Pagination 
+              page={page}
+              numPages={data.total_pages}
+              hasPreviousPage={data.page !== 1}
+              hasNextPage={data.page < data.total_pages}
+              onPreviousPage={() => setSearchParams({ page: page - 1})}
+              onNextPage={() => setSearchParams({ page: page + 1})}
+            />           
           </>
            
         )
