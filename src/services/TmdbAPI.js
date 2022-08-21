@@ -2,10 +2,10 @@ import axios from "axios"
 
 const BASE_URL = "https://api.themoviedb.org/3"
 const API_KEY = import.meta.env.VITE_API_KEY
-//----------------------------------------------------------------
-//⚠️Since KEY is not loaded from .env, this is temporarily used.⚠️
-const apiKey = '?api_key=' + '4e7030cd00fd950f89ca25a67f10944f'
-//----------------------------------------------------------------
+
+
+const apiKey = '?api_key=' + API_KEY
+
 
 
  /*================================
