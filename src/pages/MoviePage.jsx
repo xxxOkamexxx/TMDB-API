@@ -1,6 +1,9 @@
 import { useParams } from 'react-router-dom'
 import useMovie from '../hooks/useMovie'
 
+// component
+import WarningAlert from '../components/alerts/WarningAlert'
+
 // styles 
 import Container from 'react-bootstrap/esm/Container'
 import Image from 'react-bootstrap/Image'
@@ -16,12 +19,7 @@ const MoviesPage = () => {
     <Container>
       {isLoading && (<p className="my-3">Loading Movies...</p>)}
 
-      {isError && (
-        <Alert variant="danger">
-          <h3>ERROR!</h3>
-          <p>{error.message}</p>
-        </Alert>)
-      }
+      {isError && <WarningAlert message={error.message} />}
 
       {movie &&
        <>

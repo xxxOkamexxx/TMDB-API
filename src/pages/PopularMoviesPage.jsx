@@ -3,6 +3,7 @@ import  TmdbAPI  from '../services/TmdbAPI'
 
 // components
 import MovieCard from '../components/MovieCard'
+import WarningAlert from '../components/alerts/WarningAlert'
 
 // styles
 import Col from 'react-bootstrap/Col'
@@ -17,12 +18,7 @@ const PopularMoviesPage = () => {
     <Container>
         {isLoading && (<p className="my-3">Loading Movies...</p>)}
 
-        {isError && (
-          <Alert variant="danger">
-            <h3>ERROR!</h3>
-            <p>{error.message}</p>
-          </Alert>)
-        }
+        {isError && <WarningAlert message={error.message} />}
     
         {data && (
           <>
