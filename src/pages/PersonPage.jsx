@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom"
 import usePerson from "../hooks/usePerson"
+import { Link } from 'react-router-dom'
 
 // component
 import WarningAlert from '../components/alerts/WarningAlert'
@@ -24,9 +25,15 @@ const PersonPage = () => {
         <h1>{person.name}</h1>
         <Image className='img-fluid' src={`https://image.tmdb.org/t/p/w500${person.profile_path}`} alt={`image av ${person.name}` }/>
         <h2 className="h3">Filmography</h2>
+        
         <ListGroup>
           {person.movie_credits.cast.map(movie => (
-            <ListGroup.Item key={movie.id}>
+            <ListGroup.Item
+              action
+              as={Link} 
+              key={movie.id}
+              to={`/movie/${movie.id}`}
+            >
               <p className="h4">{movie.title}</p>
               <p>{movie.character}</p>               
             </ListGroup.Item>

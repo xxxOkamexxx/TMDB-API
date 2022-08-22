@@ -28,13 +28,13 @@ const MoviesPage = () => {
         <Image className='img-fluid' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`image av ${movie.title}` }/>
 
         <div>
-          <p>{`Released: ${movie.release_date}`}</p>
-          <p>{`Runtime: ${movie.runtime} min`}</p>
-          <p>{`Overview: ${movie.overview}`}</p>
+          <p> <strong>Released: </strong>{movie.release_date}</p>
+          <p> <strong>Runtime: </strong>{movie.runtime} min</p>
+          <p> <strong>Overview: </strong>{movie.overview}</p>
         </div>
         
+        <strong>Cast:</strong>
         <div className='overflow'>
-          <div>Cast:</div>
     
             {movie.credits.cast.map(cast => (
               <div key={cast.id}>
