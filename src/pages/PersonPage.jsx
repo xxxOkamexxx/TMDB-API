@@ -7,6 +7,7 @@ import WarningAlert from '../components/alerts/WarningAlert'
 // styles 
 import Container from 'react-bootstrap/esm/Container'
 import Image from 'react-bootstrap/Image'
+import { ListGroup } from "react-bootstrap"
 
 
 const PersonPage = () => {
@@ -22,13 +23,15 @@ const PersonPage = () => {
        <>
         <h1>{person.name}</h1>
         <Image className='img-fluid' src={`https://image.tmdb.org/t/p/w500${person.profile_path}`} alt={`image av ${person.name}` }/>
-        <ul>
+        <h2 className="h3">Filmography</h2>
+        <ListGroup>
           {person.movie_credits.cast.map(movie => (
-            <li key={movie.id}>
-              {movie.title} | {movie.character}
-            </li>
+            <ListGroup.Item key={movie.id}>
+              <p className="h4">{movie.title}</p>
+              <p>{movie.character}</p>               
+            </ListGroup.Item>
           ))}
-        </ul>
+        </ListGroup>
         
        </>
       }
