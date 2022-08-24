@@ -17,7 +17,7 @@ const NowPlayingMoviesPage = () => {
     const [searchParams, setSearchParams] = useSearchParams({ page: 1 })
     const page = searchParams.get('page') ? Number(searchParams.get('page')) : null
 
-    const { isLoading, isError, error, data, isSuccess } = useQuery(['movie', page], TmdbAPI.getNowPlayingMovies, {keepPreviousData: true,})
+    const { isLoading, isError, error, data, isSuccess } = useQuery(['now_playing', page], TmdbAPI.getNowPlayingMovies, {keepPreviousData: true,})
     console.log('data', data)
 
   return (

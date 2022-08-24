@@ -22,15 +22,24 @@ const MoviesPage = () => {
       {isError && <WarningAlert message={error.message} />}
 
       {movie &&
-       <>
-        <h1>{movie.title}</h1>
-        {movie && movie.genres.map(genre => (<p key={genre.id}>{genre.name}</p>))}
-        <Image className='img-fluid' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`image av ${movie.title}` }/>
+      <>
+        <div className='d-flex-column'>
+          <h1>{movie.title}</h1>
+          <div>
+            {movie && movie.genres.map(genre => (
+              <span className='me-3' key={genre.id}>{genre.name}.join(' / ')</span>
+            ))}
+          </div>
+        </div>
 
         <div>
-          <p> <strong>Released: </strong>{movie.release_date}</p>
-          <p> <strong>Runtime: </strong>{movie.runtime} min</p>
-          <p> <strong>Overview: </strong>{movie.overview}</p>
+          <Image className='img-fluid me-3' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`image av ${movie.title}` }/>
+
+          <div>
+            <p> <strong>Released: </strong>{movie.release_date}</p>
+            <p> <strong>Runtime: </strong>{movie.runtime} min</p>
+            <p> <strong>Overview: </strong>{movie.overview}</p>
+          </div>
         </div>
         
         <strong>Cast:</strong>
@@ -44,7 +53,7 @@ const MoviesPage = () => {
             ))}
       
         </div>
-       </>
+      </> 
       }
     </Container>
   )

@@ -19,7 +19,7 @@ const PopularMoviesPage = () => {
     //const query = searchParams.get('query') ?? ''
 
 
-    const { isLoading, isError, error, data, isSuccess } = useQuery(['movie', page], TmdbAPI.getPopularMovies, {keepPreviousData:true,})
+    const { isLoading, isError, error, data, isSuccess } = useQuery(['poppular', page], TmdbAPI.getPopularMovies, {keepPreviousData:true,})
     console.log('data', data)
     
   return (

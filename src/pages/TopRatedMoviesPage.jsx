@@ -17,7 +17,7 @@ const TopRatedMoviesPage = () => {
     const [searchParams, setSearchParams] = useSearchParams({ page: 1 })  
     const page = searchParams.get('page') ? Number(searchParams.get('page')) : null
     
-    const { isLoading, isError, error, data, isSuccess } = useQuery(['movie', page], TmdbAPI.getTopRatedMovies, {keepPreviousData: true,})
+    const { isLoading, isError, error, data, isSuccess } = useQuery(['top_rated', page], TmdbAPI.getTopRatedMovies, {keepPreviousData: true,})
     console.log('data', data)
 
   return (

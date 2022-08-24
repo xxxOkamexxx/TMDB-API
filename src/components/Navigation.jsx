@@ -15,9 +15,10 @@ const Navigation = () => {
 				</Navbar.Brand>
 
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
-				<Navbar.Collapse id="basic-navbar-nav">
+				<Navbar.Collapse id="basic-navbar-nav" >
 					<Nav className="ms-auto">
-						<NavDropdown title="Movies" id="basic-nav-dropdown">
+						<NavDropdown title="Movies" iid="nav-dropdown-dark-example"
+              menuVariant="dark" >
 								<NavDropdown.Item as={NavLink} to="/movie/popular">Popular</NavDropdown.Item>
 								<NavDropdown.Item as={NavLink} to="/movie/now_playing">Now Playing</NavDropdown.Item>
 								<NavDropdown.Item as={NavLink} to="/movie/top_rated">Top Rated</NavDropdown.Item>

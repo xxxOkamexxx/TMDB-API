@@ -8,7 +8,7 @@ import WarningAlert from '../components/alerts/WarningAlert'
 // styles 
 import Container from 'react-bootstrap/esm/Container'
 import Image from 'react-bootstrap/Image'
-import { ListGroup } from "react-bootstrap"
+import { ListGroup, Placeholder } from "react-bootstrap"
 
 
 const PersonPage = () => {
@@ -23,7 +23,7 @@ const PersonPage = () => {
       {person &&
        <>
         <h1>{person.name}</h1>
-        <Image className='img-fluid' src={`https://image.tmdb.org/t/p/w500${person.profile_path}`} alt={`image av ${person.name}` }/>
+        <Image className='img-fluid' src={person.profile_path ?  `https://image.tmdb.org/t/p/w500${person.profile_path}`: Placeholder} alt={`image av ${person.name}` }/>
         <h2 className="h3">Filmography</h2>
         
         <ListGroup>
