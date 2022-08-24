@@ -12,8 +12,8 @@ import { ListGroup, Placeholder } from "react-bootstrap"
 
 
 const PersonPage = () => {
-    const { id } = useParams()
-    const { isLoading, isError, error, data:person} = usePerson(id)
+    const { actor_id } = useParams()
+    const { isLoading, isError, error, data:person} = usePerson(actor_id)
   return (
     <Container>
       {isLoading && (<p className="my-3">Loading ...</p>)}

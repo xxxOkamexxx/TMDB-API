@@ -1,19 +1,22 @@
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
+import { useQuery } from 'react-query'
 import useMovie from '../hooks/useMovie'
+import TmdbAPI  from '../services/TmdbAPI'
 
 // component
 import WarningAlert from '../components/alerts/WarningAlert'
+import CastCard from '../components/CastCard'
 
 // styles 
 import Container from 'react-bootstrap/esm/Container'
 import Image from 'react-bootstrap/Image'
-import CastCard from '../components/CastCard'
 
 const MoviesPage = () => {
-    const { id } = useParams()
-    const { isLoading, isError, error, data:movie} = useMovie(id)
+    const { movie_id, genre_id } = useParams()
+    const { isLoading, isError, error, data:movie} = useMovie(movie_id)
+    const { data: genre } = useQuery(['genres', genre_id], () => TmdbAPI.getByGenre(genre_id))
 
-    console.log('id', id)
+    console.log('id', movie_id)
     console.log('data', movie)
   return (
     <Container>
@@ -26,7 +29,14 @@ const MoviesPage = () => {
         <div className='d-flex-column'>
           <h1>{movie.title}</h1>
           <div>          
-              <span>{movie.genres.map(genre => genre.name).join(' / ')}</span>
+                {movie && movie.genres.map(genre => 
+                <span className='me-2' key={genre.id}>
+                  <Link 
+                    to={`/genres/${genre.id}`}
+                  >
+                    {genre.name}
+                  </Link>
+                </span>)}                             
           </div>
         </div>
 

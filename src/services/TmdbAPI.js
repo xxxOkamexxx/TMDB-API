@@ -69,7 +69,7 @@ const getNowPlayingMovies = async ({ queryKey }) => {
  &with_genres=(genre_id)
  &with_people=(actor_id) <-- ?
   ======================*/
-  const getDiscoverMovie = async ({ queryKey }) => {
+  const getByGenre = async ({ queryKey }) => {
     const [_key, {page, genre_id}] = queryKey 
     // console.log('API_KEY: ', API_KEY)
     // console.log('response', response.data)
@@ -87,5 +87,5 @@ export default {
     getNowPlayingMovies,
     getMovie,
     getPerson,
-    getDiscoverMovie,
+    getByGenre,
 }
