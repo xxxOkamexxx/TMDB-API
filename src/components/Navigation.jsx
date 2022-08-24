@@ -19,9 +19,9 @@ const Navigation = () => {
 					<Nav className="ms-auto">
 						<NavDropdown title="Movies" iid="nav-dropdown-dark-example"
               menuVariant="dark" >
-								<NavDropdown.Item as={NavLink} to="/movie/popular">Popular</NavDropdown.Item>
-								<NavDropdown.Item as={NavLink} to="/movie/now_playing">Now Playing</NavDropdown.Item>
-								<NavDropdown.Item as={NavLink} to="/movie/top_rated">Top Rated</NavDropdown.Item>
+								<NavDropdown.Item as={NavLink} to="/popular">Popular</NavDropdown.Item>
+								<NavDropdown.Item as={NavLink} to="/now_playing">Now Playing</NavDropdown.Item>
+								<NavDropdown.Item as={NavLink} to="/top_rated">Top Rated</NavDropdown.Item>
 						</NavDropdown>
 					</Nav>
 				</Navbar.Collapse>

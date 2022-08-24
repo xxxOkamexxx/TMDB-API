@@ -25,12 +25,12 @@ function App() {
 			<Routes>
 				<Route path="/" element={<HomePage />} />
 				<Route path="*" element={<NotFound />} />
-				<Route path="/movie/popular" element={<PopularMoviesPage />} />
-				<Route path="/movie/top_rated" element={<TopRatedMoviesPage />} />
-				<Route path="/movie/now_playing" element={<NowPlayingMoviesPage />} />
+				<Route path="/popular" element={<PopularMoviesPage />} />
+				<Route path="/top_rated" element={<TopRatedMoviesPage />} />
+				<Route path="/now_playing" element={<NowPlayingMoviesPage />} />
 				<Route path="/discover/movie" element={<DiscoverMoviePage />} />
 				<Route path="/movie/:id" element={<MoviePage />} />
-				<Route path="/person/:id" element={<PersonPage />} />
+				<Route path="/actor/:id" element={<PersonPage />} />
 				
 			</Routes>
 
