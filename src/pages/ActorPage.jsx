@@ -13,7 +13,7 @@ import { ListGroup, Placeholder } from "react-bootstrap"
 
 const PersonPage = () => {
     const { actor_id } = useParams()
-    const { isLoading, isError, error, data:person} = usePerson(actor_id)
+    const { isLoading, isError, error, data: person} = usePerson(actor_id)
   return (
     <Container>
       {isLoading && (<p className="my-3">Loading ...</p>)}
@@ -31,7 +31,7 @@ const PersonPage = () => {
             <ListGroup.Item
               action
               as={Link} 
-              key={movie.id}
+              key={movie.credit_id}
               to={`/movie/${movie.id}`}
             >
               <p className="h4">{movie.title}</p>

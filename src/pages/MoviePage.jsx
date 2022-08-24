@@ -12,10 +12,9 @@ import Container from 'react-bootstrap/esm/Container'
 import Image from 'react-bootstrap/Image'
 
 const MoviesPage = () => {
-    const { movie_id, genre_id } = useParams()
+    const { movie_id } = useParams()
     const { isLoading, isError, error, data:movie} = useMovie(movie_id)
-    const { data: genre } = useQuery(['genres', genre_id], () => TmdbAPI.getByGenre(genre_id))
-
+   
     console.log('id', movie_id)
     console.log('data', movie)
   return (
@@ -29,14 +28,14 @@ const MoviesPage = () => {
         <div className='d-flex-column'>
           <h1>{movie.title}</h1>
           <div>          
-                {movie && movie.genres.map(genre => 
+                {/* {movie && movie.genres.map(genre => 
                 <span className='me-2' key={genre.id}>
                   <Link 
                     to={`/genres/${genre.id}`}
                   >
                     {genre.name}
                   </Link>
-                </span>)}                             
+                </span>)}                              */}
           </div>
         </div>
 
