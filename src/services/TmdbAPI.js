@@ -33,7 +33,7 @@ const getTopRatedMovies = async ({ queryKey }) => {
 }
 
 /**
- * Top Rated Movies
+ * Top New Movies
  */
 const getNowPlayingMovies = async ({ queryKey }) => { 
     const [_key, page] = queryKey  
@@ -45,8 +45,6 @@ const getNowPlayingMovies = async ({ queryKey }) => {
   *(with actor)
   ======================*/
   const getMovie = async (id) => {
-    // console.log('API_KEY: ', API_KEY)
-    // console.log('response', response.data)
     return get(`/movie/${id}?api_key=${API_KEY}&append_to_response=credits&include_adult=false&language=en-US`)
     
 }
@@ -55,8 +53,6 @@ const getNowPlayingMovies = async ({ queryKey }) => {
   * Get a actor info
   ======================*/
   const getPerson = async (id) => {
-    // console.log('API_KEY: ', API_KEY)
-    // console.log('response', response.data)
     return get(`/person/${id}?api_key=${API_KEY}&append_to_response=movie_credits&include_adult=false&language=en-US`)    
 }
 
@@ -71,8 +67,6 @@ const getNowPlayingMovies = async ({ queryKey }) => {
   ======================*/
   const getByGenre = async ({ queryKey }) => {
     const [_key, {page, genre_id}] = queryKey 
-    // console.log('API_KEY: ', API_KEY)
-    // console.log('response', response.data)
     return get(`/discover/movie?api_key=${API_KEY}&include_adult=false&language=en-US&page=${page}&with_genres=${genre_id}`)   
 }
  /*=====================

@@ -1,38 +1,45 @@
-import { useSearchParams } from 'react-router-dom'
-import useByGenre from '../hooks/useByGenre'
-import useGenreList from '../hooks/useGenreList'
-import { useState } from 'react'
+import { useParams, useSearchParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useQuery } from 'react-query'
+import TmdbAPI from '../services/TmdbAPI'
+
 
 // components
 import WarningAlert from '../components/alerts/WarningAlert'
+import MovieCard from '../components/MovieCard'
 
 // styles
 import Container from 'react-bootstrap/Container'
+import { Pagination } from 'react-bootstrap'
 
 const GenrePage = () => {
-  let genreName = ''
+  const [genreName, setGenreName] = useState('')
   const [searchParams, setSearchParams] = useSearchParams({
     page: 1, 
-    genre_id: "",
+    genre_id: '',
   })
 
-  const  genre_id  = searchParams.get('genre_id')
-  const page = searchParams.get('page')
+  const page = searchParams.get('page') 
+  const {genre_id}  = useParams()
+  console.log('page : id =', page + ' : ' + genre_id)
 
-  const { data: genreList, error, isError, isLoading } = useGenreList()
-  const { data: byGenres } = useByGenre()
+  const { data, error, isError, isLoading, isSuccess } = useQuery(['genre', {genre_id, page}], () => TmdbAPI.getByGenre({genre_id, page}), {keepPreviousData: true})
+  
 
-  genreList?.genres?.find(genre => {
-    if (Number(genre_id) === genre.id) {
-      genreName = genre.name
-      console.log('genre_id: ',genre_id )
-
-    }
-  })
-
-
-   console.log('byGenres', byGenres?.results)
-   
+  const getGenreName = async () => {
+    const genreList = await TmdbAPI.getGenreList()
+    const genreListItem = genreList.genres.find(genre => genre.id == genre_id)
+    setGenreName(genreListItem.name)
+    
+  }
+  
+  useEffect(() => {
+    setSearchParams({ genre_id, page: 1 })
+    TmdbAPI.getByGenre({genre_id, page})
+    getGenreName()
+  },[page, genre_id])
+  
+  console.log('item-name', genreName)
 
   return (
     <Container>
@@ -40,27 +47,23 @@ const GenrePage = () => {
 
         {isError && <WarningAlert message={error.message} />}
     
-        {genreList && (
+        {isSuccess && data && (
           <>
-            <h1>Genre</h1>
-            {genreList.genres.map(genre => (
-              <div 
-                key={genre.id}
-                onClick={() => setSearchParams({
-                  genre_id: genre.id,
-                  page: 1
-                })}
-              >
-                {genre.name}
+            <h1>{genreName}</h1>
+            
+              <div> 
+               <MovieCard movie={data} />
+               <Pagination 
+                  page={page}
+                  numPages={data.total_pages}
+                  hasPreviousPage={data.page !== 1}
+                  hasNextPage={data.page < data.total_pages}
+                  onPreviousPage={() => setSearchParams({ page: page - 1})}
+                  onNextPage={() => setSearchParams({ page: page + 1})}
+              />
               </div>
-            ))}                    
+                             
           </>          
-        )}
-
-        {byGenres && (
-          <>
-            <h2>{genreName}</h2>
-          </>
         )}
 
     </Container>
