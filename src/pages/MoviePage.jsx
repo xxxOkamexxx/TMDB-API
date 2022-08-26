@@ -1,7 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
-import { useQuery } from 'react-query'
 import useMovie from '../hooks/useMovie'
-import TmdbAPI  from '../services/TmdbAPI'
+
 
 // component
 import WarningAlert from '../components/alerts/WarningAlert'

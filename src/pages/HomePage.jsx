@@ -1,24 +1,36 @@
+// components
+import HomeCard from '../components/HomeCard'
+import Popular from '../components/homepage/Popular'
+import TopRated from '../components/homepage/TopRated'
+import NowPlaying from '../components/homepage/NowPlaying'
+
+
+// styles
 import Container from 'react-bootstrap/Container'
 
-const HomePage = () => {
+const HomePage = () => {	
+
 	return (
 		<Container className="py-3">
 			<div>
 				<hr />
-				<h4>Popular</h4>
-				<div>movies are here...</div>
+				<div className='overflow'>
+					<Popular/>
+				</div>			
 			</div>
 
 			<div>
 				<hr />
-				<h4>Now Playing</h4>
-				<div>movies are here...</div>
+				<div className='overflow'>
+					<NowPlaying/>
+				</div>
 			</div>
 
 			<div>
 				<hr />
-				<h4>Top Rated</h4>
-				<div>movies are here...</div>
+				<div className='overflow'>
+					<TopRated/>
+				</div>
 			</div>
 		</Container>
 	)
