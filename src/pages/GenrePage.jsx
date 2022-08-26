@@ -22,7 +22,7 @@ const GenrePage = () => {
     genre_id: '',
   })
 
-  const page = searchParams.get('page') 
+  const page = searchParams.get('page') ? Number(searchParams.get('page')) : null
   const {genre_id}  = useParams()
   console.log('page : id =', page + ' : ' + genre_id)
 
@@ -36,7 +36,7 @@ const GenrePage = () => {
   }
   
   useEffect(() => {
-    setSearchParams({ genre_id, page: 1 })
+    setSearchParams({ genre_id, page })
     TmdbAPI.getByGenre({genre_id, page})
     getGenreName()
   },[page, genre_id])
