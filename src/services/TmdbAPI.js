@@ -56,27 +56,27 @@ const getNowPlayingMovies = async ({ queryKey }) => {
     return get(`/person/${id}?api_key=${API_KEY}&append_to_response=movie_credits&include_adult=false&language=en-US`)    
 }
 
-
  /*=====================
   * Get movies by genres
  //https://api.themoviedb.org/3/discover/movie?api_key=(api_key)
- &include_adult=false
- &page=(page)
- &with_genres=(genre_id)
- &with_people=(actor_id) <-- ?
+        &include_adult=false
+        &page=(page)
+        &with_genres=(genre_id)
   ======================*/
   const getByGenre = async (genre_id, page) => {
     //const [_key, {page, genre_id}] = queryKey 
     return get(`/discover/movie?api_key=${API_KEY}&include_adult=false&language=en-US&page=${page}&with_genres=${genre_id}`)   
-}
+  }
+  
+  const getGenreList = async () => {
+    return get(`/genre/movie/list?api_key=${API_KEY}&include_adult=false&language=en-US`)
+  }
+
  /*=====================
   * Get movies by actor
  //https://api.themoviedb.org/3/discover/movie?api_key=(api_key)&include_adult=false&page=1&with_people=id
   ======================*/
 
-  const getGenreList = async () => {
-    return get(`/genre/movie/list?api_key=${API_KEY}&include_adult=false&language=en-US`)
-  }
 
 
 export default {
