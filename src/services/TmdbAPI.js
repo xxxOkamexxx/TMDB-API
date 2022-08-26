@@ -12,7 +12,7 @@ const API_KEY = import.meta.env.VITE_API_KEY
 
 const get = async (endpoint) => {
     const response = await axios.get(BASE_URL + endpoint)
-    console.log('API_KEY: ', API_KEY)
+    //console.log('API_KEY: ', API_KEY)
     return response.data
 }
 
