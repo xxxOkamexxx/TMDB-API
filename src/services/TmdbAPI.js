@@ -21,7 +21,7 @@ const get = async (endpoint) => {
  */
 const getPopularMovies = async ({ queryKey }) => { 
     const [_key, page] = queryKey
-    return get(`/movie/popular?api_key=${API_KEY}&include_adult=false&page=${page}`)
+    return get(`/movie/popular?api_key=${API_KEY}&include_adult=false&language=en-US&page=${page}`)
 }
 
 /**
@@ -29,7 +29,7 @@ const getPopularMovies = async ({ queryKey }) => {
  */
 const getTopRatedMovies = async ({ queryKey }) => {   
     const [_key, page] = queryKey
-    return get(`/movie/top_rated?api_key=${API_KEY}&include_adult=false&page=${page}`)
+    return get(`/movie/top_rated?api_key=${API_KEY}&include_adult=false&language=en-US&page=${page}`)
 }
 
 /**
@@ -37,7 +37,7 @@ const getTopRatedMovies = async ({ queryKey }) => {
  */
 const getNowPlayingMovies = async ({ queryKey }) => { 
     const [_key, page] = queryKey  
-    return get(`/movie/now_playing?api_key=${API_KEY}&include_adult=false&page=${page}`)
+    return get(`/movie/now_playing?api_key=${API_KEY}&include_adult=false&language=en-US&page=${page}`)
 }
 
  /*=====================
@@ -47,7 +47,7 @@ const getNowPlayingMovies = async ({ queryKey }) => {
   const getMovie = async (id) => {
     // console.log('API_KEY: ', API_KEY)
     // console.log('response', response.data)
-    return get(`/movie/${id}?api_key=${API_KEY}&append_to_response=credits&include_adult=false`)
+    return get(`/movie/${id}?api_key=${API_KEY}&append_to_response=credits&include_adult=false&language=en-US`)
     
 }
 
@@ -57,7 +57,7 @@ const getNowPlayingMovies = async ({ queryKey }) => {
   const getPerson = async (id) => {
     // console.log('API_KEY: ', API_KEY)
     // console.log('response', response.data)
-    return get(`/person/${id}?api_key=${API_KEY}&append_to_response=movie_credits&include_adult=false`)    
+    return get(`/person/${id}?api_key=${API_KEY}&append_to_response=movie_credits&include_adult=false&language=en-US`)    
 }
 
 
@@ -73,7 +73,7 @@ const getNowPlayingMovies = async ({ queryKey }) => {
     const [_key, {page, genre_id}] = queryKey 
     // console.log('API_KEY: ', API_KEY)
     // console.log('response', response.data)
-    return get(`/discover/movie?api_key=${API_KEY}&include_adult=false&page=${page}&with_genres=${genre_id}`)   
+    return get(`/discover/movie?api_key=${API_KEY}&include_adult=false&language=en-US&page=${page}&with_genres=${genre_id}`)   
 }
  /*=====================
   * Get movies by actor
@@ -81,7 +81,7 @@ const getNowPlayingMovies = async ({ queryKey }) => {
   ======================*/
 
   const getGenreList = async () => {
-    return get(`/genre/movie/list?api_key=${API_KEY}&include_adult=false`)
+    return get(`/genre/movie/list?api_key=${API_KEY}&include_adult=false&language=en-US`)
   }
 
 
