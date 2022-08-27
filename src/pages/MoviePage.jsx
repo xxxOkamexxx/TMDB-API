@@ -50,7 +50,7 @@ const MoviesPage = () => {
         </div>
         
         <strong className='h4 mb-1'>Cast:</strong>
-        <div className='overflow'>
+        <div className='overflow mb-5'>
     
             {movie.credits.cast.map(cast => (
               <div key={cast.id}>
