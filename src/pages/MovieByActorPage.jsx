@@ -1,7 +1,9 @@
 import { useParams, useSearchParams } from 'react-router-dom'
-import { useState, useEffect } from 'react'
 import { useQuery } from 'react-query'
 import TmdbAPI from '../services/TmdbAPI'
+
+// hooks
+import usePerson from '../hooks/usePerson'
 
 // components
 import MovieCard from '../components/MovieCard'
@@ -15,7 +17,6 @@ import Container from 'react-bootstrap/Container'
 
 
 export const MovieByActorPage = () => {
-    //const [actorName, setActorName] = useState('')
     const [searchParams, setSearchParams] = useSearchParams({
         page: 1, 
         actor_id: '',
@@ -29,14 +30,8 @@ export const MovieByActorPage = () => {
     
     const { data, error, isError, isLoading, isSuccess } = useQuery(['movie_by_actor', {actor_id, page}], () => TmdbAPI.getByActor(actor_id, page), {keepPreviousData: true})
       
-    // const { data: person } = useQuery(['person', actor_id], () => TmdbAPI.getPerson(actor_id))
-      
+    const { data: actor } = usePerson(actor_id)
    
-    // useEffect(() => {
-    //     setSearchParams({ actor_id, page })
-    //     //TmdbAPI.getByActor({actor_id, page})
-        
-    // },[page, actor_id])
     
     console.log('data:', data)
     
@@ -48,7 +43,7 @@ export const MovieByActorPage = () => {
     
         {isSuccess && data.results && (
           <>
-            <h1></h1>
+            <h1>Movies of {actor.name}</h1>
             
             <Row>
               {data.results.map(movie =>(

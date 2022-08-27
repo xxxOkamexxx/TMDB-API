@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
-import useMovie from '../hooks/useMovie'
 
+// hooks
+import useMovie from '../hooks/useMovie'
 
 // component
 import WarningAlert from '../components/alerts/WarningAlert'

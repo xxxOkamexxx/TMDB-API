@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom"
-import { useQuery } from "react-query"
 import usePerson from "../hooks/usePerson"
 import { Link } from 'react-router-dom'
 
@@ -9,8 +8,7 @@ import WarningAlert from '../components/alerts/WarningAlert'
 // styles 
 import Container from 'react-bootstrap/esm/Container'
 import Image from 'react-bootstrap/Image'
-import { ListGroup, Placeholder } from "react-bootstrap"
-import TmdbAPI from "../services/TmdbAPI"
+import { Placeholder } from "react-bootstrap"
 
 
 const PersonPage = () => {
@@ -39,19 +37,6 @@ const PersonPage = () => {
           </Link>
         </h4>
         
-        {/* <ListGroup>
-          {person.movie_credits.cast.map(movie => (
-            <ListGroup.Item
-              action
-              as={Link} 
-              key={movie.credit_id}
-              to={`/movie/${movie.id}`}
-            >
-              <p className="h4">{movie.title}</p>
-              <p>{movie.character}</p>               
-            </ListGroup.Item>
-          ))}
-        </ListGroup> */}
         
        </>
       }
