@@ -7,6 +7,7 @@ import WarningAlert from '../../components/alerts/WarningAlert'
 
 // styles
 import Container from 'react-bootstrap/Container'
+import { Link } from 'react-router-dom'
 
 
 const NowPlaying = () => {   
@@ -21,7 +22,11 @@ const NowPlaying = () => {
     
         {isSuccess && data.results && (
           <>
-            <h4>Now Playing</h4>
+            <h4>
+              <Link to={'/now_playing'}>
+                Now Playing
+              </Link>
+            </h4>
 
             <div className='overflow'>   
                 {data.results.map(movie => (

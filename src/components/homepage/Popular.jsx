@@ -7,6 +7,7 @@ import WarningAlert from '../../components/alerts/WarningAlert'
 
 // styles
 import Container from 'react-bootstrap/Container'
+import { Link } from 'react-router-dom'
 
 
 const Popular= () => {   
@@ -21,7 +22,11 @@ const Popular= () => {
     
         {isSuccess && data.results && (
           <>
-            <h4>Popular</h4>
+            <h4>
+              <Link to={'/popular'}>
+                Popular
+              </Link>
+            </h4>
 
             <div className='overflow'>   
                 {data.results.map(movie => (

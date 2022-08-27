@@ -7,6 +7,7 @@ import WarningAlert from '../../components/alerts/WarningAlert'
 
 // styles
 import Container from 'react-bootstrap/Container'
+import { Link } from 'react-router-dom'
 
 
 const TopRated = () => {   
@@ -21,7 +22,11 @@ const TopRated = () => {
     
         {isSuccess && data.results && (
           <>
-            <h4>Top Rated</h4>
+            <h4>
+              <Link to={'/top_rated'} >
+                Top Rated
+              </Link>
+            </h4>
 
             <div className='overflow'>   
                 {data.results.map(movie => (
