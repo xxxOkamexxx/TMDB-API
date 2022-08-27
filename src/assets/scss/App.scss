@@ -9,6 +9,13 @@
 
 .cardSize {
     width: 180px;
-    height: 400px;
+    height: 350px;
+}
+
+.card_text {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }
 
