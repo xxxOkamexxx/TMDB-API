@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const BASE_URL = "https://api.themoviedb.org/3"
+axios.defaults.baseURL = "https://api.themoviedb.org/3"
 const API_KEY = import.meta.env.VITE_API_KEY
 
 
@@ -11,7 +11,7 @@ const API_KEY = import.meta.env.VITE_API_KEY
   =================================*/
 
 const get = async (endpoint) => {
-    const response = await axios.get(BASE_URL + endpoint)
+    const response = await axios.get(endpoint)
     //console.log('API_KEY: ', API_KEY)
     return response.data
 }
