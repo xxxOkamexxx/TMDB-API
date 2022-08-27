@@ -13,6 +13,7 @@ import NowPlayingMoviesPage from './pages/NowPlayingMoviesPage'
 import GenrePage from './pages/GenrePage'
 import MoviePage from './pages/MoviePage'
 import ActorPage from './pages/ActorPage'
+import { MovieByActorPage } from './pages/MovieByActorPage'
 
 // styles
 import './assets/scss/App.scss'
@@ -31,6 +32,7 @@ function App() {
 				<Route path="/genres/:genre_id" element={<GenrePage />} />
 				<Route path="/movie/:movie_id" element={<MoviePage />} />
 				<Route path="/actor/:actor_id" element={<ActorPage />} />
+				<Route path="/movie/actor/:actor_id" element={<MovieByActorPage />} />
 				
 			</Routes>
 

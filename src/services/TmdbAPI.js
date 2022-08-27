@@ -76,7 +76,10 @@ const getNowPlayingMovies = async ({ queryKey }) => {
   * Get movies by actor
  //https://api.themoviedb.org/3/discover/movie?api_key=(api_key)&include_adult=false&page=1&with_people=id
   ======================*/
-
+  const getByActor = async (actor_id, page) => {
+    //const [_key, {page, genre_id}] = queryKey 
+    return get(`/discover/movie?api_key=${API_KEY}&include_adult=false&language=en-US&page=${page}&with_genres=${actor_id}`)   
+  }
 
 
 export default {
@@ -87,4 +90,5 @@ export default {
     getPerson,
     getByGenre,
     getGenreList,
+    getByActor
 }

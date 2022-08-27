@@ -38,7 +38,12 @@ const Navigation = () => {
 								menuVariant="dark" 
 							>
 								{data && data.genres.map(genre => (
-										<DropdownItem value='1' key={genre.id} as={NavLink} to={`/genres/${genre.id}`}>
+										<DropdownItem 
+											value='1' 
+											key={genre.id} 
+											as={NavLink} 
+											to={`/genres/${genre.id}`}
+										>
 											{genre.name}
 										</DropdownItem>
 									)
