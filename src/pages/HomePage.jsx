@@ -14,21 +14,21 @@ const HomePage = () => {
 		<Container className="py-3">
 			<div>
 				<hr />
-				<div className='overflow'>
+				<div>
 					<Popular/>
 				</div>			
 			</div>
 
 			<div>
 				<hr />
-				<div className='overflow'>
+				<div>
 					<NowPlaying/>
 				</div>
 			</div>
 
 			<div>
 				<hr />
-				<div className='overflow'>
+				<div>
 					<TopRated/>
 				</div>
 			</div>

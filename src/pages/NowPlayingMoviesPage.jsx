@@ -31,7 +31,7 @@ const NowPlayingMoviesPage = () => {
             <h1>Now Playing</h1>
             <Row>
               {data.results.map( movie =>(
-                <Col lg={3} md={4} sm={6} key={movie.id}>
+                <Col lg={3} md={4} sm={6} key={movie.id} className='d-flex'>
                   <MovieCard movie={movie} />
                 </Col>
               ))}

@@ -2,7 +2,7 @@
 
 .overflow {
     display: flex;
-    flex-direction: row;
+    //flex-direction: row;
     align-items: flex-start;
     overflow-x: scroll;
 }
@@ -12,10 +12,16 @@
     height: 350px;
 }
 
+.cast_cardSize {
+    width: 180px;
+    height: 380px;
+}
+
 .card_text {
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
 }
+
 

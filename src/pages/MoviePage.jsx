@@ -43,18 +43,17 @@ const MoviesPage = () => {
           <Image className='img-fluid me-3' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`image av ${movie.title}` }/>
 
           <div className='d-flex flex-column'>
-            <p> <strong>Released: </strong>{movie.release_date}</p>
-            <p> <strong>Runtime: </strong>{movie.runtime} min</p>
-            <p> <strong>Overview: </strong>{movie.overview}</p>
+            <p> <strong className='h4'>Released: </strong>{movie.release_date}</p>
+            <p> <strong className='h4'>Runtime: </strong>{movie.runtime} min</p>
+            <p> <strong className='h4'>Overview: </strong>{movie.overview}</p>
           </div>
         </div>
         
-        <strong>Cast:</strong>
+        <strong className='h4 mb-1'>Cast:</strong>
         <div className='overflow'>
     
             {movie.credits.cast.map(cast => (
               <div key={cast.id}>
-                <br/>
                 <CastCard cast={cast} />
               </div>
             ))}
