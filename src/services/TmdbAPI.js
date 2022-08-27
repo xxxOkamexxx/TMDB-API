@@ -78,7 +78,7 @@ const getNowPlayingMovies = async ({ queryKey }) => {
   ======================*/
   const getByActor = async (actor_id, page) => {
     //const [_key, {page, genre_id}] = queryKey 
-    return get(`/discover/movie?api_key=${API_KEY}&include_adult=false&language=en-US&page=${page}&with_genres=${actor_id}`)   
+    return get(`/discover/movie?api_key=${API_KEY}&include_adult=false&language=en-US&page=${page}&with_people=${actor_id}`)   
   }
 
 

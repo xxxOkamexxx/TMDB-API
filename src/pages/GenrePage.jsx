@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import { useQuery } from 'react-query'
 import TmdbAPI from '../services/TmdbAPI'
 
-
 // components
 import MovieCard from '../components/MovieCard'
 import WarningAlert from '../components/alerts/WarningAlert'
@@ -55,7 +54,7 @@ const GenrePage = () => {
             <h1>{genreName}</h1>
             
             <Row>
-              {data.results.map( movie =>(
+              {data.results.map(movie =>(
                 <Col lg={3} md={4} sm={6} key={movie.id}>
                   <MovieCard movie={movie} />
                 </Col>
