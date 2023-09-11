@@ -1,10 +1,51 @@
 @import 'bootstrap/scss/bootstrap';
 
+:root {
+    --v-space: clamp(
+      2rem,
+      2.2vw,
+      3rem
+    ); 
+  
+    --v-maxPrimaryPageWidth: 1366px;
+  
+    --v-imageBorderRadius: 5px;
+    
+    /* color */
+    --v-bgdarkColor: #0D0D0D;
+    --v-bglightColor: #F2F2F2;
+
+    --v-primaryMainColor: #F2F2F2;
+    --v-primaryLightColor: #D9D7D7;
+    --v-secondaryMainColor:#F2762E;
+    --v-secondaryLightColor:#F2E527;
+  
+    --v-textPrimaryColor: #262626;
+    --v-textSecondaryColor: #262626;
+    --v-lineColor: #D9D7D7;
+    --v-white: white;
+  
+}
+
+a {
+    color: var(--v-secondaryLightColor);
+}
+
+a:hover {
+    color: var(--v-secondaryMainColor);
+}
+
+body {
+    background-color: #595857;
+}
+
+
 .overflow {
     display: flex;
     //flex-direction: row;
     align-items: flex-start;
     overflow-x: scroll;
+    gap: 1em;
 }
 
 .cardSize {
@@ -17,11 +58,58 @@
     height: 380px;
 }
 
+.card-title {
+    color: var(--v-secondaryLightColor);
+}
+
+.card-title:hover {
+    color: var(--v-secondaryMainColor);
+}
+
 .card_text {
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+    color: var(--v-textSecondaryColor);
 }
 
+h1,h2,h3,h4 {
+    color: var(--v-bglightColor);
+}
+
+
+.navbar {
+    background-color: var(--v-bgdarkColor);
+
+    .logo-container {
+
+        .nav-dropdown {
+            color: var(--v-secondaryMainColor);
+        }
+
+        .logo {
+            height: 40px;
+        }
+    }
+}
+
+.info-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 32px;
+
+    .info-image-block {
+        
+
+        .img-fluid {
+        }
+    }
+
+    .info-detail{
+        width: 50vw;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+}
 

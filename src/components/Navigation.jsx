@@ -9,14 +9,20 @@ import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import DropdownItem from 'react-bootstrap/esm/DropdownItem'
 
+import Logo from '../assets/Image/Logo.svg'
+
 const Navigation = () => {
 	const { data } = useQuery(['genres'], TmdbAPI.getGenreList)
 
 	return (
-		<Navbar bg="dark" variant="dark" expand="md">
+		<Navbar className='navbar' variant="dark" expand="md">
 			<Container>
-				<Navbar.Brand as={Link} to="/">
-					The Movie DB
+				<Navbar.Brand 
+					as={Link} 
+					to="/"
+					className='logo-container'
+				>
+					<img src={Logo} className='logo'/>
 				</Navbar.Brand>
 
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -24,8 +30,8 @@ const Navigation = () => {
 					<Nav className="ms-auto">
 						<NavDropdown 
 								title="Movies" 
-								iid="nav-dropdown-dark-example"
-              					menuVariant="dark" 
+								id="nav-dropdown-dark-example"
+              	menuVariant="dark" 
 						>
 								<NavDropdown.Item as={NavLink} to="/popular">Popular</NavDropdown.Item>
 								<NavDropdown.Item as={NavLink} to="/now_playing">Now Playing</NavDropdown.Item>

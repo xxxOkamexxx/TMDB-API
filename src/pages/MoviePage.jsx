@@ -39,10 +39,12 @@ const MoviesPage = () => {
           </div>
         </div>
 
-        <div>
-          <Image className='img-fluid me-3' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`image av ${movie.title}` }/>
+        <div className='info-container'>
+          <div className='info-image-block'>
+            <Image className='img-fluid me-3' src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={`image av ${movie.title}` }/>
+          </div>
 
-          <div className='d-flex flex-column'>
+          <div className='d-flex flex-column info-detail'>
             <p> <strong className='h4'>Released: </strong>{movie.release_date}</p>
             <p> <strong className='h4'>Runtime: </strong>{movie.runtime} min</p>
             <p> <strong className='h4'>Overview: </strong>{movie.overview}</p>

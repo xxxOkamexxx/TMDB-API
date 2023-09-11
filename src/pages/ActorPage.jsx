@@ -29,9 +29,17 @@ const PersonPage = () => {
             {person.name}
           </Link>
         </h1>
-        <Image className='img-fluid' src={person.profile_path ?  `https://image.tmdb.org/t/p/w500${person.profile_path}`: Placeholder} alt={`image av ${person.name}` }/>
-        <p><strong>Birthday</strong>{person.birthday}</p>
-        <p><strong>Biography: </strong>{person.biography}</p>
+        
+        <div className='info-container'>
+          <div className='info-image-block'>
+            <Image className='img-fluid' src={person.profile_path ?  `https://image.tmdb.org/t/p/w500${person.profile_path}`: Placeholder} alt={`image av ${person.name}` }/>
+          </div>
+
+          <div className='d-flex flex-column info-detail'>
+            <p><strong>Birthday</strong>{person.birthday}</p>
+            <p><strong>Biography: </strong>{person.biography}</p>
+          </div>
+        </div>
 
         <h4 className='mb-5'>
           <Link to={`/movie/actor/${person.id}`}>
