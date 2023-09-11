@@ -22,7 +22,8 @@ const Popular= () => {
     
         {isSuccess && data.results && (
           <>
-            <h4>
+            <h4 className='home-title'>
+            <div className='title-decoration'/>
               <Link to={'/popular'}>
                 Popular
               </Link>

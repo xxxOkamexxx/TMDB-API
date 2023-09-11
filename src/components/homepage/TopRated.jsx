@@ -22,7 +22,8 @@ const TopRated = () => {
     
         {isSuccess && data.results && (
           <>
-            <h4>
+            <h4 className='home-title'>
+              <div className='title-decoration'/>
               <Link to={'/top_rated'} >
                 Top Rated
               </Link>

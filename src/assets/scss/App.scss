@@ -28,15 +28,16 @@
 }
 
 a {
-    color: var(--v-secondaryLightColor);
+    color: var(--v-primaryMainColor);
+    text-decoration: none;
 }
 
 a:hover {
-    color: var(--v-secondaryMainColor);
+    color: var(--v-primaryLightColor);
 }
 
 body {
-    background-color: #595857;
+    background-color: var(--v-textSecondaryColor);
 }
 
 
@@ -46,6 +47,10 @@ body {
     align-items: flex-start;
     overflow-x: scroll;
     gap: 1em;
+}
+
+.card {
+    background-color: var(--v-bgdarkColor);
 }
 
 .cardSize {
@@ -59,11 +64,16 @@ body {
 }
 
 .card-title {
-    color: var(--v-secondaryLightColor);
+    margin-top: 4px;
+    margin-left: 8px;
+    margin-left: 8px;
+    color: var(--v-primaryMainColor);
+    text-decoration: none;
+    font-size: 16px;
 }
 
 .card-title:hover {
-    color: var(--v-secondaryMainColor);
+    color: var(--v-primaryLightColor);
 }
 
 .card_text {
@@ -71,7 +81,7 @@ body {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
-    color: var(--v-textSecondaryColor);
+    color: var(--v-primaryLightColor);
 }
 
 h1,h2,h3,h4 {
@@ -85,7 +95,7 @@ h1,h2,h3,h4 {
     .logo-container {
 
         .nav-dropdown {
-            color: var(--v-secondaryMainColor);
+            color: var(--v-primaryMainColor);
         }
 
         .logo {
@@ -117,3 +127,16 @@ h1,h2,h3,h4 {
     }
 }
 
+.home-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .title-decoration {
+        margin-right: 8px;
+        display: block;
+        height: 24px;
+        width: 12px;
+        background-color: #F2E527;
+    }
+}
