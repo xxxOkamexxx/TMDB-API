@@ -140,3 +140,19 @@ h1,h2,h3,h4 {
         background-color: #F2E527;
     }
 }
+
+@media (min-width: 577px) {
+    .info-container {
+        flex-direction: column;
+
+        .img-fluid {
+            width: 100%;
+        }
+
+        .info-detail{
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
